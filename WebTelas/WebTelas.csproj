@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,12 +45,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -99,17 +98,101 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Content2\css\styles.css" />
+    <Content Include="Content\Content2\images\mundo.jpg" />
+    <Content Include="Content\Content2\images\mundo1.png" />
+    <Content Include="Content\Content2\images\mundo2.png" />
+    <Content Include="Content\Content2\images\mundo2.svg" />
+    <Content Include="Content\Content2\images\tic2.png" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\color.css" />
+    <Content Include="Content\css\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\css\magnific-popup.css" />
     <Content Include="Content\css\material-dashboard.css" />
     <Content Include="Content\css\material-dashboard.min.css" />
+    <Content Include="Content\css\normalize.css" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\owl.theme.css" />
+    <Content Include="Content\css\owl.transitions.css" />
+    <Content Include="Content\css\slider-pro.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\features.png" />
+    <Content Include="Content\images\features2.png" />
+    <Content Include="Content\images\footer-map.png" />
+    <Content Include="Content\images\img-header\pattern.png" />
+    <Content Include="Content\images\img-header\slider-img-1.jpg" />
+    <Content Include="Content\images\img-header\slider-img-2.jpg" />
+    <Content Include="Content\images\img-header\slider-img-5.jpg" />
+    <Content Include="Content\images\img-header\slider-img-6.jpg" />
+    <Content Include="Content\images\img-header\slider-img-7.jpg" />
+    <Content Include="Content\images\img-header\tela4.png" />
+    <Content Include="Content\images\img-header\tela5.jpg" />
+    <Content Include="Content\images\img-portfolio\portfolio1.jpg" />
+    <Content Include="Content\images\img-portfolio\portfolio2.jpg" />
+    <Content Include="Content\images\img-portfolio\portfolio3.jpg" />
+    <Content Include="Content\images\img-portfolio\portfolio4.jpg" />
+    <Content Include="Content\images\img-portfolio\portfolio5.jpg" />
+    <Content Include="Content\images\img-portfolio\portfolio6.jpg" />
+    <Content Include="Content\images\img-portfolio\portfolio7.jpg" />
+    <Content Include="Content\images\img-testimonial\4.jpg" />
+    <Content Include="Content\images\img-testimonial\5.jpg" />
+    <Content Include="Content\images\img-testimonial\6.jpg" />
+    <Content Include="Content\images\img-testimonial\testimonial1.jpg" />
+    <Content Include="Content\images\img-testimonial\testimonial2.jpg" />
+    <Content Include="Content\images\img-testimonial\testimonial3.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\preloader.gif" />
+    <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\core\bootstrap-material-design.min.js" />
     <Content Include="Content\js\core\jquery.min.js" />
     <Content Include="Content\js\core\popper.min.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\html5shiv.min.js" />
+    <Content Include="Content\js\imagesloaded.pkgd.min.js" />
+    <Content Include="Content\js\isotope.pkgd.min.js" />
+    <Content Include="Content\js\jquery-1.11.3.min.js" />
+    <Content Include="Content\js\jquery.easing.1.3.js" />
+    <Content Include="Content\js\jquery.easypiechart.js" />
+    <Content Include="Content\js\jquery.fitvids.js" />
+    <Content Include="Content\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\js\jquery.nav.js" />
+    <Content Include="Content\js\jquery.scrollUp.min.js" />
+    <Content Include="Content\js\jquery.sliderPro.min.js" />
+    <Content Include="Content\js\jquery.stellar.min.js" />
+    <Content Include="Content\js\jquery.waypoints.min.js" />
     <Content Include="Content\js\material-dashboard.js" />
     <Content Include="Content\js\material-dashboard.min.js" />
+    <Content Include="Content\js\modernizr.min.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
     <Content Include="Content\js\plugins\bootstrap-notify.js" />
     <Content Include="Content\js\plugins\chartist.min.js" />
     <Content Include="Content\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Content\js\respond.min.js" />
+    <Content Include="Content\js\selectivizr.js" />
+    <Content Include="Content\js\smooth-scroll.min.js" />
+    <Content Include="Content\js\wow.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\css\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\BOD_I.TTF" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\images\.DS_Store" />
+    <Content Include="Content\images\img-portfolio\.DS_Store" />
+    <Content Include="Content\images\img-testimonial\.DS_Store" />
+    <Content Include="Content\Content2\fonts\Asap-Regular.ttf" />
+    <Content Include="Content\Content2\fonts\Audiowide-Regular.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -123,6 +206,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\FrondEndController.cs" />
     <Compile Include="Controllers\TelasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -318,6 +402,10 @@
     <Content Include="Views\Telas\Details.cshtml" />
     <Content Include="Views\Telas\Edit.cshtml" />
     <Content Include="Views\Telas\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutFrondEnd.cshtml" />
+    <Content Include="Views\FrondEnd\PaginaFrond.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\FrondEnd\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
