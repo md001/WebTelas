@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace WebTelas.Controllers
 {
-    public class FrondEndController : Controller
+    public class FrontEndController : Controller
     {
         // GET: FrondEnd
-        public ActionResult PaginaFrond()
+        public ActionResult Index()
         {
             return View();
         }

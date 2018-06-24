@@ -206,7 +206,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
-    <Compile Include="Controllers\FrondEndController.cs" />
+    <Compile Include="Controllers\FrontEndController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\TelasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -402,10 +403,10 @@
     <Content Include="Views\Telas\Details.cshtml" />
     <Content Include="Views\Telas\Edit.cshtml" />
     <Content Include="Views\Telas\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutFrondEnd.cshtml" />
-    <Content Include="Views\FrondEnd\PaginaFrond.cshtml" />
+    <Content Include="Views\Shared\_LayoutFrontEnd.cshtml" />
+    <Content Include="Views\FrontEnd\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
-    <Content Include="Views\FrondEnd\Login.cshtml" />
+    <Content Include="Views\FrontEnd\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -415,6 +416,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Session\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

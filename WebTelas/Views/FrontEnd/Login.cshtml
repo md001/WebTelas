@@ -1,0 +1,38 @@
+﻿@model WebTelas.Models.Usuario
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Login</h2>
+<div class="design-w3l">
+    <div class="mail-form-agile">
+        <form action="#" method="post">
+
+            <div class="form-group">
+                @Html.DisplayNameFor(Model => Model.Nombre)
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(Model => Model.Contra)
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contra, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Contra, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p>Bot&oacute;n de login</p>
+                    @*               Texto    Action   Ctrl        objeto con los datos *@
+                    @Html.ActionLink("Login", "Login", "Session", new { @class = "btn btn-danger" })
+                </div>
+            </div>
+        
+        </form>
+    </div>
+    <div class="clear"> </div>
+</div>
