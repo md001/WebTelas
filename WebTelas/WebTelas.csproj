@@ -210,7 +210,9 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\FrontEndController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\TelasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -413,6 +415,16 @@
     <Content Include="Views\FrontEnd\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\FrontEnd\Login.cshtml" />
+    <Content Include="Views\Empleado\Create.cshtml" />
+    <Content Include="Views\Empleado\Delete.cshtml" />
+    <Content Include="Views\Empleado\Details.cshtml" />
+    <Content Include="Views\Empleado\Edit.cshtml" />
+    <Content Include="Views\Empleado\Index.cshtml" />
+    <Content Include="Views\Perfil\Create.cshtml" />
+    <Content Include="Views\Perfil\Delete.cshtml" />
+    <Content Include="Views\Perfil\Details.cshtml" />
+    <Content Include="Views\Perfil\Edit.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
