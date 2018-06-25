@@ -49,9 +49,8 @@ namespace WebTelas.Controllers
                         return RedirectToAction("Dashboard");
                     }
                 }
-                return RedirectToAction("Login");
             }
-            return View(usuario);
+            return RedirectToAction("Login");
         }
     }
 }
