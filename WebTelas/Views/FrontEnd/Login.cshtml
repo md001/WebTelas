@@ -10,6 +10,9 @@
         <form action="#" method="post">
             <h1>mundo</h1>
             <div class="form-group">
+            <div>
+            hola mundo
+            </div>
                 <h2>@Html.DisplayNameFor(Model => Model.Nombre)</h2>
                 @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
@@ -24,6 +27,7 @@
                 @*               Texto    Action   Ctrl        objeto con los datos *@
                 @Html.ActionLink("Login", "Login", "Session", new { @class = "btn btn-primary btn-lg" })
             </div>
+            <input type="submit" value="Entrar">
         </form>
     </div>
     <div class="clear"> </div>
