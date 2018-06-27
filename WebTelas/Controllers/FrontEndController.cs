@@ -11,6 +11,7 @@ namespace WebTelas.Controllers
         // GET: FrondEnd
         public ActionResult Index()
         {
+            Session["UsuariorAuth"] = false;
             return View();
         }
 

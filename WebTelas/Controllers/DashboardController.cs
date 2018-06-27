@@ -12,8 +12,14 @@ namespace WebTelas.Controllers
         // GET: Dashboard
         public ActionResult Home() // Views\Dashboard\"Home"
         {
-
-            return View();
+            if( (bool)Session["UsuariorAuth"] == false)
+            {
+                return RedirectToAction("Login", "Frontend");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

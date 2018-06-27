@@ -21,15 +21,20 @@ namespace WebTelas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Usuario usuario)
         {
+            Session["UsuariorAuth"] = false;
+
             if (ModelState.IsValid)
             {
                 using (TelasDBContext db = new TelasDBContext())
                 {
-                    //var obj = db.Usuarios
-                    //            .Where(u => u.Nombre.Equals(usuario.Nombre));
-                    var usrList = (from u in db.Usuarios
-                                   where u.Nombre == usuario.Nombre
-                                   select u).ToList();
+                    var usrList = db.Usuarios
+                                    .Where(u => u.Nombre.Equals(usuario.Nombre) &&
+                                                u.Contra.Equals(usuario.Contra));
+                    //var usrList = (from   u in db.Usuarios
+                    //               where  u.Nombre == usuario.Nombre &&
+                    //                      u.Contra == usuario.Contra
+                    //               select u).ToList();
+
 
                     if (usrList != null) 
                     {
@@ -38,7 +43,7 @@ namespace WebTelas.Controllers
                             Usuario u = usrList.First<Usuario>();
                             Session["UsuariorId"] = u.Id.ToString();
                             Session["UsuariorNombre"] = u.Nombre.ToString();
-                            
+                            Session["UsuariorAuth"] = true;
                             //Session["UsuariorPerfil"] = u.Perfil.ToString();
                             //Session["UsuariorImagen"] = u.Imagen.ToString();
 
@@ -46,19 +51,23 @@ namespace WebTelas.Controllers
                         }
                         else
                         {
+                            Session["UsuariorAuth"] = false;
                             // más de un usuario!
-                            return RedirectToAction("Index");
+                            return RedirectToAction("Login", "Frontend");
                         }
                     }
                     else
                     {
+                        Session["UsuariorAuth"] = false;
                         // nombre y/o contra inválido(s), indicar error
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Login", "Frontend");
                     }
                 }
             }
             else
-            {   // Debe de retornar a una página de error
+            {
+                Session["UsuariorAuth"] = false;
+                // Debe de retornar a una página de error
                 return RedirectToAction("Index", "Frontend");
             }
         }

@@ -17,28 +17,50 @@ namespace WebTelas.Controllers
         // GET: Telas
         public ActionResult Index()
         {
-            return View(db.Telas.ToList());
+            if ((bool)Session["UsuariorAuth"] == false)
+            {
+                return RedirectToAction("Login", "Frontend");
+            }
+            else
+            {
+                return View(db.Telas.ToList());
+            }
         }
 
         // GET: Telas/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if ((bool)Session["UsuariorAuth"] == false)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Login", "Frontend");
             }
-            Tela tela = db.Telas.Find(id);
-            if (tela == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Tela tela = db.Telas.Find(id);
+                if (tela == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tela);
             }
-            return View(tela);
+            
         }
 
         // GET: Telas/Create
         public ActionResult Create()
         {
-            return View();
+            if ((bool)Session["UsuariorAuth"] == false)
+            {
+                return RedirectToAction("Login", "Frontend");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Telas/Create
@@ -48,29 +70,43 @@ namespace WebTelas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Nombre,Descripcion,Imagen,Costo")] Tela tela)
         {
-            if (ModelState.IsValid)
+            if ((bool)Session["UsuariorAuth"] == false)
             {
-                db.Telas.Add(tela);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Frontend");
             }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Telas.Add(tela);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(tela);
+                return View(tela);
+            }
         }
 
         // GET: Telas/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if ((bool)Session["UsuariorAuth"] == false)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Login", "Frontend");
             }
-            Tela tela = db.Telas.Find(id);
-            if (tela == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Tela tela = db.Telas.Find(id);
+                if (tela == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tela);
             }
-            return View(tela);
         }
 
         // POST: Telas/Edit/5
@@ -80,28 +116,42 @@ namespace WebTelas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Nombre,Descripcion,Imagen,Costo")] Tela tela)
         {
-            if (ModelState.IsValid)
+            if ((bool)Session["UsuariorAuth"] == false)
             {
-                db.Entry(tela).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Frontend");
             }
-            return View(tela);
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(tela).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(tela);
+            }
         }
 
         // GET: Telas/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if ((bool)Session["UsuariorAuth"] == false)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Login", "Frontend");
             }
-            Tela tela = db.Telas.Find(id);
-            if (tela == null)
+            else
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Tela tela = db.Telas.Find(id);
+                if (tela == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tela);
             }
-            return View(tela);
         }
 
         // POST: Telas/Delete/5
@@ -109,10 +159,17 @@ namespace WebTelas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tela tela = db.Telas.Find(id);
-            db.Telas.Remove(tela);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if ((bool)Session["UsuariorAuth"] == false)
+            {
+                return RedirectToAction("Login", "Frontend");
+            }
+            else
+            {
+                Tela tela = db.Telas.Find(id);
+                db.Telas.Remove(tela);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)
