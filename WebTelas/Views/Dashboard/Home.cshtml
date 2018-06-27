@@ -1,7 +1,10 @@
-﻿
+﻿@model WebTelas.Models.Usuario
 @{
     ViewBag.Title = "Dashboard Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Dashboard - Home</h2>
+<h3>Bienvenido, @Session["UsuariorNombre"]</h3>
+@* Session["UsuariorNombre"] Session["UsuariorId"] *@
+

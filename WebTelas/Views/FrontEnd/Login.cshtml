@@ -7,23 +7,30 @@
 
 <div class="design-w3l">
     <div class="mail-form-agile row">
-        <form action="#" method="post">
+        @*                     Action   Ctrl        *@
+        @using (Html.BeginForm("Login", "Session", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
             <div class="form-group">
-                <h2>@Html.DisplayNameFor(Model => Model.Nombre)</h2>
-                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @*<h2>@Html.DisplayNameFor(Model => Model.Nombre)</h2>*@
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre"  } })
                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                <h3>@Html.DisplayNameFor(Model => Model.Contra)</h3>
-                @Html.EditorFor(model => model.Contra, new { htmlAttributes = new { @class = "form-control" } })
+                <p>&nbsp;</p>
+            </div>
+            <div class="form-group">
+                @*<h3>@Html.DisplayNameFor(Model => Model.Contra)</h3>*@
+                @Html.EditorFor(model => model.Contra, new { htmlAttributes = new { @class = "form-control", @placeholder = "Contraseña" } })
                 @Html.ValidationMessageFor(model => model.Contra, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
                 <p>&nbsp;</p>
                 @*               Texto    Action   Ctrl        objeto con los datos *@
-                @Html.ActionLink("Login", "Login", "Session", new { @class = "btn btn-primary btn-lg" })
+                @*Html.ActionLink("Login", "Login", "Session", new { @class = "btn btn-primary btn-lg" })*@
+                <input type="submit" value="Login" />
             </div>
-        </form>
-    </div>
+                }
+            </div>
     <div class="clear"> </div>
 </div>

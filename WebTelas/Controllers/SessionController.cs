@@ -25,32 +25,42 @@ namespace WebTelas.Controllers
             {
                 using (TelasDBContext db = new TelasDBContext())
                 {
-                    // var obj = db.UserProfiles.Where(a => a.UserName.Equals(objUser.UserName) && a.Password.Equals(objUser.Password)).FirstOrDefault();
-                    //if (obj != null)
-                    //{
-                    //    Session["UserID"] = obj.UserId.ToString();
-                    //    Session["UserName"] = obj.UserName.ToString();
-                    //    return RedirectToAction("UserDashBoard");
-                    //}
+                    //var obj = db.Usuarios
+                    //            .Where(u => u.Nombre.Equals(usuario.Nombre));
+                    var usrList = (from u in db.Usuarios
+                                   where u.Nombre == usuario.Nombre
+                                   select u).ToList();
 
-                    //db.Entry(usuario).State = EntityState.;
-                    //db.SaveChanges();
-
-                    var obj = db.Usuarios.Where(u => u.Nombre.Equals(usuario.Nombre) &&
-                                                     u.Contra.Equals(usuario.Contra)).FirstOrDefault();
-                    if( obj != null )
+                    if (usrList != null) 
                     {
-                        Session["UsuariorId"] = obj.Id.ToString();
-                        Session["UsuariorNombre"] = obj.Nombre.ToString();
-                        //Session["UsuariorrContra"] = obj.Contra.ToString();
-                        Session["UsuariorPerfil"] = obj.Perfil.ToString();
-                        Session["UsuariorImagen"] = obj.Imagen.ToString();
+                        if (usrList.Count<Usuario>() == 1)
+                        {
+                            Usuario u = usrList.First<Usuario>();
+                            Session["UsuariorId"] = u.Id.ToString();
+                            Session["UsuariorNombre"] = u.Nombre.ToString();
+                            
+                            //Session["UsuariorPerfil"] = u.Perfil.ToString();
+                            //Session["UsuariorImagen"] = u.Imagen.ToString();
 
-                        return RedirectToAction("Dashboard");
+                            return RedirectToAction("Home", "Dashboard");
+                        }
+                        else
+                        {
+                            // más de un usuario!
+                            return RedirectToAction("Index");
+                        }
+                    }
+                    else
+                    {
+                        // nombre y/o contra inválido(s), indicar error
+                        return RedirectToAction("Index");
                     }
                 }
             }
-            return RedirectToAction("Login");
+            else
+            {   // Debe de retornar a una página de error
+                return RedirectToAction("Index", "Frontend");
+            }
         }
     }
 }
