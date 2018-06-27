@@ -197,6 +197,7 @@
     <None Include="Properties\PublishProfiles\TelasSur - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="google857b75187984054d.html" />
+    <Content Include="Robots.txt" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
