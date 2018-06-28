@@ -9,7 +9,7 @@ namespace WebTelas.Models
 {
     public class TelasDBContext : DbContext
     {
-        public TelasDBContext() : base("TelasDBContext") // conn string ! ! !
+        public TelasDBContext() : base("TelasDBContext")
         {
         }
 

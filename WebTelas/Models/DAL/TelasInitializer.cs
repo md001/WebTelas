@@ -35,7 +35,7 @@ namespace WebTelas.Models.DAL
 
             var telas = new List<Tela>
             {
-                new Tela{Nombre="Algodón 1", Descripcion="Tela nacional", Costo=30.0, Imagen="Sin imagen"}
+                new Tela{Nombre="Algodón 1", Descripcion="Tela nacional", Costo=30.0, Imagen=System.IO.File.ReadAllBytes("~\\Content\\images\\img-header\\slider-img-1.jpg")}
             };
 
             telas.ForEach(t => context.Telas.Add(t));
